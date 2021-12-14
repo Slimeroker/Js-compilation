@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">            
+    <meta http-equiv="X-UA Compatible" content="IE=edge">
+    <title>test</title>
+    <style>
+    </style>
+</head>
+ <body>
+  <body oncontextmenu="return false;"> 
+  <input type="text" id="col">
+  <button id="but">я кнопка</button>
+    <ul id="ul1"></ul>
+  <script>
+  'use strict' 
+  
+
+let btn = document.getElementById('but');
+let col = document.getElementById('col');
+let ul1 = document.getElementById('ul1');
+      
+function deleteSelf(e){
+    if (e.which === 3){  // три равно сравнивают только по типу, я читал что так лучше, which определяет что мы нажали (1-левый клик, 2-клик колёсиком, 3-правый клик)
+        e.target.remove(); //ну понятно удаляем на что нажимаем
+    }
+}
+      
+      
+function addText(content){
+  let elem = document.createElement('li');
+  elem.textContent = content; //так можно получить текстовое содержимое элемента :)(ну тут я его вставляю)
+  elem.addEventListener('mousedown', deleteSelf); //вызываем функцию удаления при нажатии, а в самой фукции проверям че там нажалось
+  ul1.append(elem);
+}
+      
+but.addEventListener('click', function(e){
+  addText(col.value); //оказывается функции без ретурнов можно вызывать без let a и прочей фигни!!! удобно жуть
+});
+      
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault(); //полностью отключаю во всем документе контекст меню
+});
+      
+ </script>
+</body>    
