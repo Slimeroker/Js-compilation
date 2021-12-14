@@ -11,16 +11,16 @@
      <input type="text" id="tag">
      <button id="butId">Кнопка</button>
      <p>Хехв</p>
-  <script> //я даже кнопку вам приделал для проверки :)
+  <script> 
   'use strict'
   function tagCheck(tag){
-    let tags = document.getElementsByTagName(tag);   
+    let tags = document.getElementsByTagName(tag); //в tags теперь тег того что мы вписали, именно как тег а не как надпись тега
     for (let i = 0; i < tags.length; i++) {
       tags[i].style.textDecoration = "UnderLine";
     }
 }
   butId.addEventListener("click", function(e){
-       let nothing = tagCheck(tag.value);
+       tagCheck(tag.value);
 });
  </script>
 </body>   
